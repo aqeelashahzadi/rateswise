@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Seamless News Strip Ticker</title>
+  <style>
+    /* 1. Ticker Container (The Window) */
+    .ticker-wrap {
+      width: 100%;
+      overflow: hidden; /* Hides horizontal scrollbars */
+      background: #111;
+      padding: 10px 0;
+      box-sizing: border-box;
+    }
+
+    /* 2. Moving Track */
+    .ticker-track {
+      display: flex;
+      width: max-content; /* Allows track to expand horizontally */
+      animation: marquee 20s linear infinite;
+    }
+
+   
+
+    /* 3. Ticker Items */
+    .ticker-item {
+      flex-shrink: 0; /* Prevents images from crushing/shrinking */
+      padding: 0 15px;
+    }
+
+    .ticker-item img {
+      height: 100px; /* Forces uniform height */
+      width: auto;   /* Maintains aspect ratio */
+      border-radius: 8px;
+      display: block;
+    }
+
+    /* 4. Infinite Right-to-Left Animation Loop */
+    @keyframes marquee {
+      0% {
+        transform: translateX(0);
+      }
+      100% {
+        /* Translates exactly halfway because the list is duplicated */
+        transform: translateX(-50%);
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="ticker-wrap">
+    <div class="ticker-track">
+      
+      <!-- FIRST SET OF IMAGES -->
+      <div class="ticker-item"><img src="https://picsum.photos" alt="Image 1"></div>
+      <div class="ticker-item"><img src="https://picsum.photos" alt="Image 2"></div>
+      <div class="ticker-item"><img src="https://picsum.photos" alt="Image 3"></div>
+      <div class="ticker-item"><img src="https://picsum.photos" alt="Image 4"></div>
+      <div class="ticker-item"><img src="https://picsum.photos" alt="Image 5"></div>
+
+      <!-- DUPLICATED SET (Required for a seamless loop) -->
+      <div class="ticker-item"><img src="https://picsum.photos" alt="Image 1"></div>
+      <div class="ticker-item"><img src="https://picsum.photos" alt="Image 2"></div>
+      <div class="ticker-item"><img src="https://picsum.photos" alt="Image 3"></div>
+      <div class="ticker-item"><img src="https://picsum.photos" alt="Image 4"></div>
+      <div class="ticker-item"><img src="https://picsum.photos" alt="Image 5"></div>
+
+    </div>
+  </div>
+
+</body>
+</html>
